@@ -1,9 +1,7 @@
 package com.wyait.manage.service;
 
-import com.wyait.manage.entity.PermissionVO;
-import com.wyait.manage.entity.RoleVO;
-import com.wyait.manage.pojo.Permission;
-import com.wyait.manage.pojo.Role;
+import com.wyait.manage.form.PermissionForm;
+import com.wyait.manage.form.RoleForm;
 
 import java.util.List;
 
@@ -16,13 +14,13 @@ import java.util.List;
  * @version：V1.0
  */
 public interface AuthService {
-	int addPermission(Permission permission);
+	int addPermission(PermissionForm permission);
 
-	List<Permission> permList();
+	List<PermissionForm> permList();
 
-	int updatePerm(Permission permission);
+	int updatePerm(PermissionForm permission);
 
-	Permission getPermission(int id);
+	PermissionForm getPermission(int id);
 
 	String delPermission(int id);
 
@@ -30,13 +28,13 @@ public interface AuthService {
 	 * 查询所有角色
 	 * @return
 	 */
-	List<Role> roleList();
+	List<RoleForm> roleList();
 
 	/**
 	 * 关联查询权限树列表
 	 * @return
 	 */
-	List<PermissionVO> findPerms();
+	List<PermissionForm> findPerms();
 
 	/**
 	 * 添加角色
@@ -44,9 +42,9 @@ public interface AuthService {
 	 * @param permIds
 	 * @return
 	 */
-	String addRole(Role role, String permIds);
+	String addRole(RoleForm role, String permIds);
 
-	RoleVO findRoleAndPerms(Integer id);
+	RoleForm findRoleAndPerms(Integer id);
 
 	/**
 	 * 更新角色并授权
@@ -54,7 +52,7 @@ public interface AuthService {
 	 * @param permIds
 	 * @return
 	 */
-	String updateRole(Role role, String permIds);
+	String updateRole(RoleForm role, String permIds);
 
 	/**
 	 * 删除角色以及它对应的权限
@@ -67,26 +65,26 @@ public interface AuthService {
 	 * 查找所有角色
 	 * @return
 	 */
-	List<Role> getRoles();
+	List<RoleForm> getRoles();
 
 	/**
 	 * 根据用户获取角色列表
 	 * @param userId
 	 * @return
 	 */
-	List<Role> getRoleByUser(Integer userId);
+	List<RoleForm> getRoleByUser(Integer userId);
 
 	/**
 	 * 根据角色id获取权限数据
 	 * @param id
 	 * @return
 	 */
-	List<Permission> findPermsByRoleId(Integer id);
+	List<PermissionForm> findPermsByRoleId(Integer id);
 
 	/**
 	 * 根据用户id获取权限数据
 	 * @param id
 	 * @return
 	 */
-	List<PermissionVO> getUserPerms(Integer id);
+	List<PermissionForm> getUserPerms(Integer id);
 }

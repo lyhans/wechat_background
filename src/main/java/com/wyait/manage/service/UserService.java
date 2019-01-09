@@ -1,9 +1,8 @@
 package com.wyait.manage.service;
 
-import com.wyait.manage.entity.UserDTO;
-import com.wyait.manage.entity.UserRolesVO;
-import com.wyait.manage.entity.UserSearchDTO;
-import com.wyait.manage.pojo.User;
+import com.wyait.manage.form.UserForm;
+import com.wyait.manage.form.UserRolesForm;
+import com.wyait.manage.form.UserSearchForm;
 import com.wyait.manage.utils.PageDataResult;
 
 /**
@@ -21,7 +20,7 @@ public interface UserService {
 	 * @param limit
 	 * @return
 	 */
-	PageDataResult getUsers(UserSearchDTO userSearch, int page, int limit);
+	PageDataResult getUsers(UserSearchForm userSearch, int page, int limit);
 
 	/**
 	 *	设置用户【新增或更新】
@@ -29,7 +28,7 @@ public interface UserService {
 	 * @param roleIds
 	 * @return
 	 */
-	String setUser(User user, String roleIds);
+	String setUser(UserForm user, String roleIds);
 
 	/**
 	 * 设置用户是否离职
@@ -55,21 +54,21 @@ public interface UserService {
 	 * @param id
 	 * @return
 	 */
-	UserRolesVO getUserAndRoles(Integer id);
+	UserRolesForm getUserAndRoles(Integer id);
 
 	/**
 	 * 发送短信验证码
 	 * @param user
 	 * @return
 	 */
-	String sendMsg(UserDTO user);
+	String sendMsg(UserForm user);
 
 	/**
 	 * 根据手机号查询用户数据
 	 * @param mobile
 	 * @return
 	 */
-	User findUserByMobile(String mobile);
+	UserForm findUserByMobile(String mobile);
 
 	/**
 	 * 根据手机号发送短信验证码

@@ -1,4 +1,4 @@
-package com.wyait.manage.entity;
+package com.wyait.manage.form;
 
 import com.wyait.manage.utils.IStatusMessage;
 
@@ -11,7 +11,7 @@ import java.io.Serializable;
  * @创建时间： 2018年1月4日10:57:24
  * @version:
  */
-public class ResponseResult implements Serializable {
+public class ResponseResultForm implements Serializable {
 	
 	private static final long serialVersionUID = 7285065610386199394L;
 
@@ -19,12 +19,12 @@ public class ResponseResult implements Serializable {
 	private String message;
 	private Object obj;
 	
-	public ResponseResult() {
+	public ResponseResultForm() {
 		this.code = IStatusMessage.SystemStatus.SUCCESS.getCode();
 		this.message = IStatusMessage.SystemStatus.SUCCESS.getMessage();
 	}
 	
-	public ResponseResult(IStatusMessage statusMessage){
+	public ResponseResultForm(IStatusMessage statusMessage){
 		this.code = statusMessage.getCode();
 		this.message = statusMessage.getMessage();
 		

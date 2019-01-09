@@ -1,9 +1,9 @@
-package com.wyait.manage.pojo;
+package com.wyait.manage.form;
 
 import java.util.Date;
 
-public class Role {
-    private Integer id;
+public class RoleForm {
+    private Long id;
 
     private String roleName;
 
@@ -11,17 +11,17 @@ public class Role {
 
     private String code;
 
-    private Integer insertUid;
+    private Long creatorId;
 
-    private Date insertTime;
+    private Date createTime;
 
     private Date updateTime;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -49,20 +49,20 @@ public class Role {
         this.code = code == null ? null : code.trim();
     }
 
-    public Integer getInsertUid() {
-        return insertUid;
+    public Long getCreatorId() {
+        return creatorId;
     }
 
-    public void setInsertUid(Integer insertUid) {
-        this.insertUid = insertUid;
+    public void setCreatorId(Long creatorId) {
+        this.creatorId = creatorId;
     }
 
-    public Date getInsertTime() {
-        return insertTime;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setInsertTime(Date insertTime) {
-        this.insertTime = insertTime;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     public Date getUpdateTime() {
@@ -71,12 +71,5 @@ public class Role {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
-    }
-
-    @Override public String toString() {
-        return "Role{" + "id=" + id + ", roleName='" + roleName + '\''
-                + ", descpt='" + descpt + '\'' + ", code='" + code + '\''
-                + ", insertUid=" + insertUid + ", insertTime=" + insertTime
-                + ", updateTime=" + updateTime + '}';
     }
 }

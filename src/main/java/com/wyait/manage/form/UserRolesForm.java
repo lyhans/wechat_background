@@ -1,6 +1,8 @@
-package com.wyait.manage.entity;
+package com.wyait.manage.form;
 
-public class UserRoleDTO {
+import java.util.List;
+
+public class UserRolesForm {
 	private Integer id;
 
 	private String username;
@@ -21,7 +23,7 @@ public class UserRoleDTO {
 
 	private boolean isJob;
 
-	private String roleNames;
+	private List<UserRoleForm> userRoles;
 
 	private Integer version;
 
@@ -74,8 +76,7 @@ public class UserRoleDTO {
 	}
 
 	public String getInsertTime() {
-		return insertTime == null ? "" : insertTime.substring(0,
-				insertTime.length() - 2);
+		return insertTime;
 	}
 
 	public void setInsertTime(String insertTime) {
@@ -83,8 +84,7 @@ public class UserRoleDTO {
 	}
 
 	public String getUpdateTime() {
-		return updateTime == null ? "" : updateTime.substring(0,
-				updateTime.length() - 2);
+		return updateTime;
 	}
 
 	public void setUpdateTime(String updateTime) {
@@ -107,12 +107,20 @@ public class UserRoleDTO {
 		isJob = job;
 	}
 
-	public String getRoleNames() {
-		return roleNames;
+	public boolean isDel() {
+		return isDel;
 	}
 
-	public void setRoleNames(String roleNames) {
-		this.roleNames = roleNames;
+	public boolean isJob() {
+		return isJob;
+	}
+
+	public List<UserRoleForm> getUserRoles() {
+		return userRoles;
+	}
+
+	public void setUserRoles(List<UserRoleForm> userRoles) {
+		this.userRoles = userRoles;
 	}
 
 	public Integer getVersion() {
@@ -121,16 +129,6 @@ public class UserRoleDTO {
 
 	public void setVersion(Integer version) {
 		this.version = version;
-	}
-
-	@Override
-	public String toString() {
-		return "UserRoleDTO [id=" + id + ", username=" + username + ", mobile="
-				+ mobile + ", email=" + email + ", password=" + password
-				+ ", insertUid=" + insertUid + ", insertTime=" + insertTime
-				+ ", updateTime=" + updateTime + ", isDel=" + isDel
-				+ ", isJob=" + isJob + ", roleNames=" + roleNames
-				+ ", version=" + version + "]";
 	}
 
 }

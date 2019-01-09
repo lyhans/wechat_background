@@ -1,11 +1,8 @@
 package com.wyait.manage.shiro;
 
 import com.wyait.manage.dao.UserMapper;
-import com.wyait.manage.pojo.Permission;
-import com.wyait.manage.pojo.Role;
-import com.wyait.manage.pojo.User;
 import com.wyait.manage.service.AuthService;
-import com.wyait.manage.service.UserServiceImpl;
+import com.wyait.manage.service.impl.UserServiceImpl;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;

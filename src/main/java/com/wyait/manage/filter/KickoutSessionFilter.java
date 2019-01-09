@@ -11,8 +11,8 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.wyait.manage.entity.ResponseResult;
-import com.wyait.manage.pojo.User;
+import com.wyait.manage.form.ResponseResultForm;
+import com.wyait.manage.form.UserForm;
 import com.wyait.manage.utils.IStatusMessage;
 import com.wyait.manage.utils.ShiroFilterUtils;
 import org.apache.shiro.cache.Cache;
@@ -84,7 +84,7 @@ public class KickoutSessionFilter extends AccessControlFilter {
 		if (!subject.isAuthenticated() && !subject.isRemembered()) {
 			// 如果没有登录，直接进行之后的流程
 			//判断是不是Ajax请求，异步请求，直接响应返回未登录
-			ResponseResult responseResult = new ResponseResult();
+			ResponseResultForm responseResult = new ResponseResultForm();
 			if (ShiroFilterUtils.isAjax(request) ) {
 				logger.debug(getClass().getName()+ "当前用户已经在其他地方登录，并且是Ajax请求！");
 				responseResult.setCode(IStatusMessage.SystemStatus.MANY_LOGINS.getCode());
@@ -110,7 +110,7 @@ public class KickoutSessionFilter extends AccessControlFilter {
 				+ "===========");
 		try {
 			// 当前用户
-			User user = (User) subject.getPrincipal();
+			UserForm user = (UserForm) subject.getPrincipal();
 			String username = user.getUsername();
 			logger.debug("===当前用户username：==" + username);
 			Serializable sessionId = session.getId();
@@ -190,7 +190,7 @@ public class KickoutSessionFilter extends AccessControlFilter {
 	 * @param response
 	 * @param result
 	 */
-	public static void out(ServletResponse response, ResponseResult result){
+	public static void out(ServletResponse response, ResponseResultForm result){
 		PrintWriter out = null;
 		try {
 			response.setCharacterEncoding("UTF-8");//设置编码
@@ -217,7 +217,7 @@ public class KickoutSessionFilter extends AccessControlFilter {
 		 * 2.如果是普通请求，直接跳转到登录页
 		 */
 		//判断是不是Ajax请求
-		ResponseResult responseResult = new ResponseResult();
+		ResponseResultForm responseResult = new ResponseResultForm();
 		if (ShiroFilterUtils.isAjax(request) ) {
 			logger.debug(getClass().getName()+ "当前用户已经在其他地方登录，并且是Ajax请求！");
 			responseResult.setCode(IStatusMessage.SystemStatus.MANY_LOGINS.getCode());

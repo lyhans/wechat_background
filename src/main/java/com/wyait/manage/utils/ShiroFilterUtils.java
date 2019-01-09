@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.wyait.manage.entity.ResponseResult;
+import com.wyait.manage.form.ResponseResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

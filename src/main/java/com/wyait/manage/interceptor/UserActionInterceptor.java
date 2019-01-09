@@ -1,11 +1,11 @@
 package com.wyait.manage.interceptor;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.wyait.manage.form.UserForm;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.web.util.WebUtils;
@@ -15,9 +15,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.wyait.manage.entity.ResponseResult;
-import com.wyait.manage.pojo.User;
 import com.wyait.manage.service.UserService;
 import com.wyait.manage.utils.IStatusMessage;
 import com.wyait.manage.utils.ShiroFilterUtils;
@@ -65,11 +62,10 @@ public class UserActionInterceptor implements HandlerInterceptor {
 		logger.debug("请求到达后台方法之前调用（controller之前）");
 		// 1. SecurityUtils获取session中的用户信息
 		// HttpSession session=request.getSession();
-		User user = (User) SecurityUtils.getSubject().getPrincipal();
-		if (user != null && StringUtils.isNotEmpty(user.getMobile())
-				&& null != user.getVersion()) {
+		UserForm user = (UserForm) SecurityUtils.getSubject().getPrincipal();
+		if (user != null && StringUtils.isNotEmpty(user.getMobile())) {
 			// 2. 获取数据库中的用户数据
-			User dataUser = this.userService.findUserByMobile(user.getMobile());
+			UserForm dataUser = this.userService.findUserByMobile(user.getMobile());
 			// 3. 对比session中用户的version和数据库中的是否一致
 			if (dataUser != null
 					&& null != dataUser.getVersion()

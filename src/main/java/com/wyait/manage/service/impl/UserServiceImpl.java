@@ -1,17 +1,13 @@
-package com.wyait.manage.service;
+package com.wyait.manage.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.wyait.manage.dao.RoleMapper;
 import com.wyait.manage.dao.UserMapper;
 import com.wyait.manage.dao.UserRoleMapper;
-import com.wyait.manage.entity.UserDTO;
-import com.wyait.manage.entity.UserRoleDTO;
-import com.wyait.manage.entity.UserRolesVO;
-import com.wyait.manage.entity.UserSearchDTO;
-import com.wyait.manage.pojo.Role;
-import com.wyait.manage.pojo.User;
-import com.wyait.manage.pojo.UserRoleKey;
+import com.wyait.manage.form.UserRolesVO;
+import com.wyait.manage.form.UserSearchDTO;
+import com.wyait.manage.service.UserService;
 import com.wyait.manage.shiro.ShiroRealm;
 import com.wyait.manage.utils.DateUtil;
 import com.wyait.manage.utils.PageDataResult;

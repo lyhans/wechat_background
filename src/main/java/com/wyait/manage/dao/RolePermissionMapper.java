@@ -1,17 +1,19 @@
 package com.wyait.manage.dao;
 
-import com.wyait.manage.pojo.RolePermissionKey;
-import org.apache.ibatis.annotations.Mapper;
+import com.wyait.manage.entity.RolePermissionEntity;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
-
-@Mapper
+@Service
 public interface RolePermissionMapper {
-    int deleteByPrimaryKey(RolePermissionKey key);
+    int deleteByPrimaryKey(Long id);
 
-    int insert(RolePermissionKey record);
+    int insert(RolePermissionEntity record);
 
-    int insertSelective(RolePermissionKey record);
+    int insertSelective(RolePermissionEntity record);
 
-	List<RolePermissionKey> findByRole(int roleId);
+    RolePermissionEntity selectByPrimaryKey(Long id);
+
+    int updateByPrimaryKeySelective(RolePermissionEntity record);
+
+    int updateByPrimaryKey(RolePermissionEntity record);
 }

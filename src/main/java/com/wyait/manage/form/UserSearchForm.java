@@ -1,4 +1,4 @@
-package com.wyait.manage.entity;
+package com.wyait.manage.form;
 
 /**
  * @项目名称：wyait-manage
@@ -8,7 +8,7 @@ package com.wyait.manage.entity;
  * @创建时间：2018-01-02 17:10
  * @version：V1.0
  */
-public class UserSearchDTO {
+public class UserSearchForm {
 
 	private Integer page;
 

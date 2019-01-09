@@ -1,11 +1,5 @@
 package com.wyait.manage.web.user;
 
-import com.wyait.manage.entity.PermissionVO;
-import com.wyait.manage.entity.RoleVO;
-import com.wyait.manage.pojo.Permission;
-import com.wyait.manage.pojo.Role;
-import com.wyait.manage.pojo.RolePermissionKey;
-import com.wyait.manage.pojo.User;
 import com.wyait.manage.service.AuthService;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;

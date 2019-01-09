@@ -1,35 +1,35 @@
-package com.wyait.manage.pojo;
+package com.wyait.manage.entity;
 
 import java.util.Date;
 
-public class Permission {
-    private Integer id;
-
+public class PermissionEntity {
+    private Long id;
+    /** 菜单名称 */
     private String name;
-
-    private Integer pid;
-
+    /** 父菜单id */
+    private Long pid;
+    /** 菜单排序 */
     private Integer zindex;
-
-    private Integer istype;
-
+    /** 权限分类（0 菜单；1 功能） */
+    private Integer type;
+    /** 描述 */
     private String descpt;
-
+    /** 菜单编号 */
     private String code;
-
+    /** 菜单图标名称 */
     private String icon;
-
-    private String page;
-
-    private Date insertTime;
-
+    /** 菜单url */
+    private String url;
+    /** 创建时间 */
+    private Date createTime;
+    /** 修改时间 */
     private Date updateTime;
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -41,11 +41,11 @@ public class Permission {
         this.name = name == null ? null : name.trim();
     }
 
-    public Integer getPid() {
+    public Long getPid() {
         return pid;
     }
 
-    public void setPid(Integer pid) {
+    public void setPid(Long pid) {
         this.pid = pid;
     }
 
@@ -57,12 +57,12 @@ public class Permission {
         this.zindex = zindex;
     }
 
-    public Integer getIstype() {
-        return istype;
+    public Integer getType() {
+        return type;
     }
 
-    public void setIstype(Integer istype) {
-        this.istype = istype;
+    public void setType(Integer type) {
+        this.type = type;
     }
 
     public String getDescpt() {
@@ -89,20 +89,20 @@ public class Permission {
         this.icon = icon == null ? null : icon.trim();
     }
 
-    public String getPage() {
-        return page;
+    public String getUrl() {
+        return url;
     }
 
-    public void setPage(String page) {
-        this.page = page == null ? null : page.trim();
+    public void setUrl(String url) {
+        this.url = url == null ? null : url.trim();
     }
 
-    public Date getInsertTime() {
-        return insertTime;
+    public Date getCreateTime() {
+        return createTime;
     }
 
-    public void setInsertTime(Date insertTime) {
-        this.insertTime = insertTime;
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 
     public Date getUpdateTime() {
@@ -111,14 +111,5 @@ public class Permission {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
-    }
-
-    @Override public String toString() {
-        return "Permission{" + "id=" + id + ", name='" + name + '\'' + ", pid="
-                + pid + ", zindex=" + zindex + ", istype=" + istype
-                + ", descpt='" + descpt + '\'' + ", code='" + code + '\''
-                + ", icon='" + icon + '\'' + ", page='" + page + '\''
-                + ", insertTime=" + insertTime + ", updateTime=" + updateTime
-                + '}';
     }
 }

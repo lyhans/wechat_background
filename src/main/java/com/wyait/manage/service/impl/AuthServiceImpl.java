@@ -1,13 +1,10 @@
-package com.wyait.manage.service;
+package com.wyait.manage.service.impl;
 
 import com.wyait.manage.dao.PermissionMapper;
 import com.wyait.manage.dao.RoleMapper;
 import com.wyait.manage.dao.RolePermissionMapper;
-import com.wyait.manage.entity.PermissionVO;
-import com.wyait.manage.entity.RoleVO;
-import com.wyait.manage.pojo.Permission;
-import com.wyait.manage.pojo.Role;
-import com.wyait.manage.pojo.RolePermissionKey;
+import com.wyait.manage.form.PermissionForm;
+import com.wyait.manage.service.AuthService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,26 +35,26 @@ public class AuthServiceImpl implements AuthService {
 	@Autowired
 	private RolePermissionMapper rolePermissionMapper;
 	@Override
-	public int addPermission(Permission permission) {
+	public int addPermission(PermissionForm permission) {
 		return this.permissionMapper.insert(permission);
 	}
 
 	@Override
-	public List<Permission> permList() {
+	public List<PermissionForm> permList() {
 		return this.permissionMapper.findAll();
 	}
 
-	@Override public int updatePerm(Permission permission) {
+	@Override public int updatePerm(PermissionForm permission) {
 		return this.permissionMapper.updateByPrimaryKeySelective(permission);
 	}
 
-	@Override public Permission getPermission(int id) {
+	@Override public PermissionForm getPermission(int id) {
 		return this.permissionMapper.selectByPrimaryKey(id);
 	}
 
 	@Override public String delPermission(int id) {
 		//查看该权限是否有子节点，如果有，先删除子节点
-		List<Permission> childPerm = this.permissionMapper.findChildPerm(id);
+		List<PermissionForm> childPerm = this.permissionMapper.findChildPerm(id);
 		if(null != childPerm && childPerm.size()>0){
 			return "删除失败，请您先删除该权限的子节点";
 		}

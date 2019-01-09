@@ -1,11 +1,8 @@
 package com.wyait.manage.web.user;
 
-import com.wyait.manage.entity.ResponseResult;
-import com.wyait.manage.entity.UserDTO;
-import com.wyait.manage.entity.UserRolesVO;
-import com.wyait.manage.entity.UserSearchDTO;
-import com.wyait.manage.pojo.Role;
-import com.wyait.manage.pojo.User;
+import com.wyait.manage.form.ResponseResult;
+import com.wyait.manage.form.UserRolesVO;
+import com.wyait.manage.form.UserSearchDTO;
 import com.wyait.manage.service.AuthService;
 import com.wyait.manage.service.UserService;
 import com.wyait.manage.utils.DateUtil;

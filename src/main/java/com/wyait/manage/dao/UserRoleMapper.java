@@ -1,22 +1,19 @@
 package com.wyait.manage.dao;
 
-import com.wyait.manage.pojo.UserRoleKey;
-import org.apache.ibatis.annotations.Mapper;
+import com.wyait.manage.entity.UserRoleEntity;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
-
-@Mapper
+@Service
 public interface UserRoleMapper {
-    int deleteByPrimaryKey(UserRoleKey key);
+    int deleteByPrimaryKey(Long id);
 
-    int insert(UserRoleKey record);
+    int insert(UserRoleEntity record);
 
-    int insertSelective(UserRoleKey record);
+    int insertSelective(UserRoleEntity record);
 
-	/**
-	 * 根据用户获取用户角色中间表数据
-	 * @param userId
-	 * @return
-	 */
-	List<UserRoleKey> findByUserId(int userId);
+    UserRoleEntity selectByPrimaryKey(Long id);
+
+    int updateByPrimaryKeySelective(UserRoleEntity record);
+
+    int updateByPrimaryKey(UserRoleEntity record);
 }
